@@ -1,0 +1,73 @@
+\begin{thebibliography}{}
+
+\bibitem[Cong et~al., 2022]{sat_mae}
+Cong, Y., Khanna, S., Meng, C., Liu, P., Rozi, E., He, Y., Burke, M., Lobell, D., and Ermon, S. (2022).
+\newblock Satmae: Pre-training transformers for temporal and multi-spectral satellite imagery.
+\newblock {\em Advances in Neural Information Processing Systems}, 35:197--211.
+
+\bibitem[{European Commission}, nd]{sugareu}
+{European Commission} (n.d.).
+\newblock Sugar production.
+\newblock Accessed September 3, 2025.
+
+\bibitem[He et~al., 2022]{masked_autoencoder}
+He, K., Chen, X., Xie, S., Li, Y., Doll{\'a}r, P., and Girshick, R. (2022).
+\newblock Masked autoencoders are scalable vision learners.
+\newblock In {\em Proceedings of the IEEE/CVF conference on computer vision and pattern recognition}, pages 16000--16009.
+
+\bibitem[Ji et~al., 2018]{temp_cnns}
+Ji, S., Zhang, C., Xu, A., Shi, Y., and Duan, Y. (2018).
+\newblock 3d convolutional neural networks for crop classification with multi-temporal remote sensing images.
+\newblock {\em Remote Sensing}, 10(1):75.
+
+\bibitem[Raza et~al., 2020]{raza2020exploring}
+Raza, M.~M., Harding, C., Liebman, M., and Leandro, L.~F. (2020).
+\newblock Exploring the potential of high-resolution satellite imagery for the detection of soybean sudden death syndrome.
+\newblock {\em Remote Sensing}, 12(7):1213.
+
+\bibitem[Rumpf et~al., 2010]{rumpf2010early}
+Rumpf, T., Mahlein, A.-K., Steiner, U., Oerke, E.-C., Dehne, H.-W., and Pl{\"u}mer, L. (2010).
+\newblock Early detection and classification of plant diseases with support vector machines based on hyperspectral reflectance.
+\newblock {\em Computers and electronics in agriculture}, 74(1):91--99.
+
+\bibitem[{Sentinel Copernicus}, nd]{sentinel_2a}
+{Sentinel Copernicus} (n.d.).
+\newblock Copernicus sentinel-2 collection 1 msi level-2a (l2a).
+\newblock Accessed September 3, 2025.
+
+\bibitem[{Sentinel Hub}, nd]{sentinel_sceneclassification}
+{Sentinel Hub} (n.d.).
+\newblock Sentinel-2 collection scene classification map.
+\newblock Accessed September 3, 2025.
+
+\bibitem[Shanmugam et~al., 2017]{shanmugam2017disease}
+Shanmugam, L., Adline, A.~A., Aishwarya, N., and Krithika, G. (2017).
+\newblock Disease detection in crops using remote sensing images.
+\newblock In {\em 2017 IEEE Technological Innovations in ICT for Agriculture and Rural Development (TIAR)}, pages 112--115. IEEE.
+
+\bibitem[Tarasiou et~al., 2023]{vit_sits}
+Tarasiou, M., Chavez, E., and Zafeiriou, S. (2023).
+\newblock Vits for sits: Vision transformers for satellite image time series.
+\newblock In {\em Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition}.
+
+\bibitem[Vaswani et~al., 2017]{vaswani2017attention}
+Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A.~N., Kaiser, {\L}., and Polosukhin, I. (2017).
+\newblock Attention is all you need.
+\newblock {\em Advances in neural information processing systems}, 30.
+
+\bibitem[Victor et~al., 2024]{victor2024systematic}
+Victor, B., Nibali, A., and He, Z. (2024).
+\newblock A systematic review of the use of deep learning in satellite imagery for agriculture.
+\newblock {\em IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing}.
+
+\bibitem[Yu et~al., 2021]{yu2021early}
+Yu, R., Luo, Y., Zhou, Q., Zhang, X., Wu, D., and Ren, L. (2021).
+\newblock Early detection of pine wilt disease using deep learning algorithms and uav-based multispectral imagery.
+\newblock {\em Forest Ecology and Management}, 497:119493.
+
+\bibitem[Zhao et~al., 2021]{3D_cnns}
+Zhao, C., Cheng, H., and Feng, S. (2021).
+\newblock A spectral--spatial change detection method based on simplified 3-d convolutional autoencoder for multitemporal hyperspectral images.
+\newblock {\em IEEE Geoscience and Remote Sensing Letters}, 19:1--5.
+
+\end{thebibliography}
