@@ -38,7 +38,7 @@
     }
     \affiliation{\sup{1}Center for Artificial Intelligence and Robotics, Technical University of Applied Sciences Würzburg-Schweinfurt, Franz-Horn-Straße 2, Würzburg, Germany} 
     \affiliation{\sup{2}green spin GmbH, Magdalene-Schoch-Straße 5, Würzburg, Germany}
-    \email{bhumikalaxman.sadbhave@study.thws.de, philipp.vaeth@thws.de, dejon@greenspin.de, schorcht@greenspin.de, magda.gregorova@thws.de}
+    \email{bhumikalaxman.sadbhave@study.thws.de, philipp.vaeth@thws.de, \{dejon, schorcht\}@greenspin.de, magda.gregorova@thws.de}
 }
 
 \keywords{Satellite Image Time Series (SITS), Autoencoder, 3D Convolution, Representation Learning}
@@ -53,6 +53,7 @@ The resulting stress detection system can be directly applied to data from diffe
 \onecolumn \maketitle \normalsize \setcounter{footnote}{0} \vfill
 
 \section{\uppercase{Introduction}}
+
 \label{sec:introduction}
 
 Sugar beet (Beta vulgaris) is a major industrial crop in Europe, particularly in countries like Germany, France, and Poland. 
@@ -84,7 +85,7 @@ To address this, recent work\cite{3D_cnns,masked_autoencoder,sat_mae} has applie
 Additionally, Vision Transformer (ViT) based models\cite{vit_sits,masked_autoencoder,sat_mae} demonstrate the value of temporal encodings in learning data representations. 
 Inspired by these studies, we propose an autoencoder model with 3D convolution and temporal encodings derived from acquisition dates for feature learning, followed by clustering for stress detection-- thereby eliminating the need for labeled data.
 
-\subsection{Auto-encoders}
+\subsection{Autoencoders}
 Autoencoders are neural networks used for unsupervised representation learning, enabling tasks such as dimensionality reduction and feature extraction.
 They encode the high-dimensional input $\mathbf{x}$ into a lower-dimensional latent representation $\mathbf{z}$ through an encoder,  capturing essential features while discarding irrelevant details. 
 A decoder then reconstructs the original input from $\mathbf{z}$, producing $\hat{\mathbf{x}}$.
@@ -92,9 +93,8 @@ This process is summarised as:
 \[\hat{\mathbf{x}} = \text{Decoder}(\text{Encoder}(\mathbf{x}))\]
 
 \textbf{Loss Function:} The model is trained to minimise reconstruction error between $\mathbf{x}$ and $\hat{\mathbf{x}}$, most commonly using Mean Squared Error (MSE):
-\begin{equation}
+\begin{equation}\label{eq:mse}
 \mathcal{L}(\mathbf{x}, \hat{\mathbf{x}}) = \frac{1}{n} \sum_{i=1}^{n} \left\| \mathbf{x}_i - \hat{\mathbf{x}}_i \right\|^2 \enspace,
-\label{eq:mse}
 \end{equation}
 where $\mathbf{x}$ is the input data, $\hat{\mathbf{x}}$ is the reconstructed data, and $n$ is the number of examples.
 This optimisation enables the model to learn compact, informative representations of the data.
@@ -112,7 +112,7 @@ Three auxiliary masks are used in pre-processing: a cloud mask derived from the 
 
 \begin{figure}[t]
     \centering
-    \includegraphics[scale=0.5]{data_repr.png}
+    \includegraphics[scale=0.45]{data_repr.png}
     \caption{Image data represented as a sequence of temporal instances from $t1$ to $t7$. Each cube corresponds to a single instance with dimensions $(H, W, C)$.}
     \label{fig:data-repr}
 \end{figure}
@@ -214,7 +214,7 @@ We denote the model as 3D\_AE, with the architecture as shown in Figure~\ref{fig
 Due to limited labeled data, we categorise the sugar-beet sub-patches as stressed or healthy by applying unsupervised clustering on the learned features \(\mathbf{z}\) instead of supervised classification.
 We use k-means to group the features into two clusters, which we interpret as the target classes.
 
-\subsection{Obtaining patch-level labels}\label{subsec:thresholding}
+\subsection{Obtaining Patch-level Labels}\label{subsec:thresholding}
 
 Since ground truth labels are only available for the entire sugar-beet fields, we aggregate sub-patch predictions using a threshold \( \alpha \in [0, 1] \).  
 If more than \( \alpha\% \) of the sub-patches are predicted as stressed, the entire sugar-beet field is labeled stressed.  
@@ -222,7 +222,7 @@ Using a configurable threshold provides flexibility in defining the severity of 
 This flexibility is useful in different scenarios—for example, a lower threshold can be set to detect fields with minimal stress for closer monitoring, while a higher threshold helps avoid false alarms by only marking fields with significant stress. 
 We use \( \alpha = 0.5 \) as the default value and further analyse the effect of varying this threshold.
 
-\subsection{Generation of localized stress maps}\label{subsec:stress_maps}
+\subsection{Generating Localized Stress Maps}\label{subsec:stress_maps}
 
 Apart from the sugar-beet field predictions, we also generate visual deliverables in the form of field-level stress maps. 
 These stress maps are RGB field-level images with localized stress regions highlighted by bounding boxes drawn over the sub-patches predicted as stressed.
@@ -322,7 +322,7 @@ As shown in Table~\ref{tab:model_comparison}, the B10 tensor achieves the highes
 In comparison, the MVI tensor performs worst, showing that vegetation indices alone may lack the spectral detail needed for effective unsupervised learning. 
 Interestingly, the B4 tensor outperforms MVI, indicating that even limited raw band data can retain more useful information than pre-computed vegetation indices.
 
-\subsection{Effect of varying the sub-patch-to-patch threshold}\label{subsec:threshold_expt}
+\subsection{Effect of Varying the Sub-patch-to-patch Threshold}\label{subsec:threshold_expt}
 
 We further examine the impact of varying the sub-patch-to-patch threshold $\alpha \in [0,1]$. 
 A sugar-beet field is labeled as stressed if the proportion of its sub-patches predicted as stressed exceeds the threshold $\alpha$.
@@ -335,7 +335,7 @@ This shift reflects the tendency of the baseline model to incorrectly label heal
 While both models perform comparably around the default threshold $\alpha=0.5$, 3D\_AE shows greater robustness at higher thresholds, maintaining better precision and a slightly higher F1-score. 
 This suggests that the spatiotemporal representations learned by 3D\_AE lead to more reliable stress detection under higher thresholds.
 
-\subsection{Applying the stress detection system on 2024 data}\label{subsec:2024_expt}
+\subsection{Applying the Stress Detection System on 2024 Data}\label{subsec:2024_expt}
 
 The developed stress detection system is implemented as a single, modular script that handles data loading, preprocessing, training of the 3D\_AE model with temporal encodings, and downstream clustering, producing field-level predictions and localized stress maps. 
 We further apply this system to the 2024 season, where high rainfall limited the availability of cloud-free observations.
